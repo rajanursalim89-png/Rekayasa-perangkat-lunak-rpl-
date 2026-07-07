@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Tugas</title>
+</head>
+<body>
+
+<h1>Edit Tugas</h1>
+
+<form method="POST">
+{% csrf_token %}
+
+<label>Judul Tugas</label><br>
+<input type="text" name="judul" value="{{ tugas.judul }}" required><br><br>
+
+<label>Mata Kuliah</label><br>
+<input type="text" name="mata_kuliah" value="{{ tugas.mata_kuliah }}" required><br><br>
+
+<label>Deadline</label><br>
+<input type="date" name="deadline" value="{{ tugas.deadline|date:'Y-m-d' }}" required><br><br>
+
+<label>Status</label><br>
+<select name="status">
+    <option value="Dibuka" {% if tugas.status == "Dibuka" %}selected{% endif %}>Dibuka</option>
+    <option value="Ditutup" {% if tugas.status == "Ditutup" %}selected{% endif %}>Ditutup</option>
+</select>
+
+<br><br>
+
+<button type="submit">Update</button>
+
+</form>
+
+<br>
+
+<a href="/tugas/">Kembali</a>
+
+</body>
+</html>

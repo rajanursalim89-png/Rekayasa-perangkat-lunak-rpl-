@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tambah Tugas</title>
+</head>
+<body>
+
+<h1>Tambah Tugas</h1>
+
+<form method="POST">
+{% csrf_token %}
+
+<label>Judul Tugas</label><br>
+<input type="text" name="judul" required><br><br>
+
+<label>Mata Kuliah</label><br>
+<input type="text" name="mata_kuliah" required><br><br>
+
+<label>Deadline</label><br>
+<input type="date" name="deadline" required><br><br>
+
+<label>Status</label><br>
+<select name="status">
+    <option value="Dibuka">Dibuka</option>
+    <option value="Ditutup">Ditutup</option>
+</select>
+
+<br><br>
+
+<button type="submit">Simpan</button>
+
+</form>
+
+<br>
+
+<a href="/tugas/">Kembali</a>
+
+</body>
+</html>
